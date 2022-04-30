@@ -60,7 +60,7 @@ class App extends Component {
     .then(data => {
       this.setState({ box: this.calculateBoundingBox(data) });
       this.setState({ key: data.map(box => box.id)})
-      if (data.length) {
+      if (data.length && this.calculateBoundingBox(data).length !== this.state.box.length) {
         fetch('http://localhost:3001/imageEntry', {
           method: 'put',
           headers: {
