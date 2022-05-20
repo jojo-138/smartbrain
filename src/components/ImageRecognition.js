@@ -1,8 +1,9 @@
 const ImageRecognition = ({ imageURL,faceBox,boxID }) => {
-	const box = faceBox.map(box => {
-		return boxID.map(id => (
+	const box = faceBox.map((box, i) => {
+		const id = boxID[i];
+		return (
 			<div key={id} className="bounding-box" style={{ top: box.topRow, left: box.leftCol, bottom: box.bottomRow, right: box.rightCol}}/>
-		))
+		)
 	})
 	return (
 		<div className="flex justify-center">
